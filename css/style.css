@@ -26,6 +26,42 @@ _\ \ (_| | | |_  | | | (__|   <  \__ \ |_| |_| | (_| | | (_) |
   font-family:arial, helvetica, sans-serif;
 } */
 
+/* Default image for desktop */
+.img-cat {
+  content: url("../images/cat.png");
+}
+.img-chameleon {
+  content: url("../images/chameleon.png");
+}
+.img-crow {
+  content: url("../images/crow.png");
+}
+.img-lobster {
+  content: url("../images/lobster.png");
+}
+.img-fish {
+  content: url("../images/fish.png");
+}
+
+/* Mobile images for screens smaller than 768px */
+@media (max-width: 768px) {
+  .img-cat {
+    content: url("../images/cat-m.png");
+  }
+  .img-chameleon {
+    content: url("../images/chameleon-m.png");
+  }
+  .img-crow {
+    content: url("../images/crow-m.png");
+  }
+  .img-lobster {
+    content: url("../images/lobster-m.png");
+  }
+  .img-fish {
+    content: url("../images/fish-m.png");
+  }
+}
+
 textarea {
   width: 100%;
   min-height: 350px;
