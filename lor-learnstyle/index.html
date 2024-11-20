@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>LOR Learning Style Quiz</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="js/jqueryAtom.js"></script>
+    <script type="text/javascript" src="js/local-google-analytics.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64235210-8"></script> -->
+    <script>
+      // window.dataLayer = window.dataLayer || [];
+      // function gtag(){dataLayer.push(arguments);}
+      // gtag('js', new Date());
+      //
+      // gtag('config', 'UA-64235210-8');
+
+      ga("create", "UA-64235210-8", "auto");
+      ga("send", "pageview");
+    </script>
+  </head>
+
+  <body>
+    <div class="wideClear">
+      <div class="quiz">
+        <div class="quizHeader">
+          <h1>What type of learner are you?</h1>
+          <p>
+            Take this short quiz to discover your learning style and find out what types of learning
+            may suit you!
+          </p>
+        </div>
+
+        <div id="appBox" class="panel wideClear active">
+          <!-- Q1 -->
+          <div class="quizItem wideClear transition" id="box1">
+            <h2 class="transition">1. How do you approach solving problems or challenges?</h2>
+
+            <div class="wideClear">
+              <input type="radio" name="radio1" id="q1a" />
+              <label for="q1a">I observe carefully and adapt to the situation.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio1" id="q1b" />
+              <label for="q1b">I get hands-on and find creative ways to work through it.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio1" id="q1c" />
+              <label for="q1c">I analyze and strategize to find a smart solution.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio1" id="q1d" />
+              <label for="q1d">
+                I face it head-on, even if it means stepping out of my comfort zone.
+              </label>
+              <br />
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="quizItem wideClear transition" id="box2">
+            <h2 class="transition">2. What motivates you to learn or grow?</h2>
+
+            <div class="wideClear">
+              <input type="radio" name="radio2" id="q2a" />
+              <label for="q2a">Learning through social interactions and playful exploration.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio2" id="q2b" />
+              <label for="q2b">Exploring new environments and trying new experiences.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio2" id="q2c" />
+              <label for="q2c">Constantly evolving and adapting to challenges.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio2" id="q2d" />
+              <label for="q2d">Observing and adjusting to fit into new situations.</label>
+              <br />
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="quizItem wideClear transition" id="box3">
+            <h2 class="transition">3. How do you react when something doesn’t go as planned?</h2>
+
+            <div class="wideClear">
+              <input type="radio" name="radio3" id="q3a" />
+              <label for="q3a">I adapt quickly and try a different approach.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio3" id="q3b" />
+              <label for="q3b">I learn from my mistakes and keep moving forward.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio3" id="q3c" />
+              <label for="q3c">I think critically about what went wrong and try to fix it.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio3" id="q3d" />
+              <label for="q3d">I see setbacks as a chance to grow stronger.</label>
+              <br />
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="quizItem wideClear transition" id="box4">
+            <h2 class="transition">4. What is your preferred learning environment?</h2>
+
+            <div class="wideClear">
+              <input type="radio" name="radio4" id="q4a" />
+              <label for="q4a">
+                A dynamic and ever-changing environment where I can blend in and observe.
+              </label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio4" id="q4b" />
+              <label for="q4b">
+                A hands-on, exploratory space where I can test and experiment.
+              </label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio4" id="q4c" />
+              <label for="q4c">A collaborative, social space where I can interact and play.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio4" id="q4d" />
+              <label for="q4d">
+                A challenging environment that pushes me out of my comfort zone.
+              </label>
+              <br />
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="quizItem wideClear transition" id="box5">
+            <h2 class="transition">
+              5. Which of these statements best describes your learning style?
+            </h2>
+
+            <div class="wideClear">
+              <input type="radio" name="radio5" id="q5a" />
+              <label for="q5a">
+                I learn by adapting to different circumstances and being alert.
+              </label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio5" id="q5b" />
+              <label for="q5b">I learn through exploration and taking calculated risks.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio5" id="q5c" />
+              <label for="q5c">I learn by solving problems and engaging socially.</label>
+              <br />
+            </div>
+            <div class="wideClear">
+              <input type="radio" name="radio5" id="q5d" />
+              <label for="q5d">I learn by embracing vulnerability and growing from it.</label>
+              <br />
+            </div>
+          </div>
+
+          <!-- Q END -->
+
+          <button id="submit1" class="hvr-bounce-to-top bounceBtn" onclick="submitAnswers()">
+            Submit
+          </button>
+
+          <div class="quizItem wideClear transition hide" id="resultsBox">
+            <h2>You...</h2>
+            <div class="graph wideClear">
+              <div id="career1" class="hide">
+                <h1>Learn Like a Lobster!</h1>
+                <br />
+                <img src="images/lobster.png" />
+                <p>
+                  If you’re like the Lobster, you are a growth-oriented learner who seeks challenges
+                  and values resilience. Learning comes through pushing boundaries and embracing
+                  discomfort.
+                </p>
+                <br />
+                <p><strong>Traits:</strong></p>
+                <ul>
+                  <li>Always Growing: Focused on continuous self-improvement.</li>
+                  <li>Break Free From Your Shell: Open to adopting new approaches.</li>
+                  <li>Be Vulnerable to Be Stronger: Embraces challenges for growth.</li>
+                  <li>Regrow: Resilient and able to recover from setbacks.</li>
+                </ul>
+                <p><strong>Suggested Learning Methods:</strong></p>
+                <ul>
+                  <li>Taking part in Learning Programmes such as Brilliant Basics.</li>
+                  <li>Reflective learning techniques, like journaling.</li>
+                  <li>Going through Learning Paths.</li>
+                  <li>Group discussions or presentations to develop confidence.</li>
+                </ul>
+              </div>
+              <div id="career2" class="hide">
+                <h1>Are Curious Like a Cat!</h1>
+                <br />
+                <img src="images/cat.png" />
+                <p>
+                  If your learning style aligns with the Cat, you thrive in environments where you
+                  can investigate and experiment. Mistakes are opportunities to learn, and you enjoy
+                  discovery and hands-on activities.
+                </p>
+                <br />
+                <p><strong>Your Traits:</strong></p>
+                <ul>
+                  <li>Always Exploring: Curious and eager to try new things.</li>
+                  <li>Keen Eyes: Sharp observation and attention to detail.</li>
+                  <li>Land on Your Feet: Resilient and adaptable to setbacks.</li>
+                  <li>Not Afraid to Get Dirty: Prefers hands-on experimentation.</li>
+                </ul>
+                <p><strong>Suggested Learning Methods:</strong></p>
+                <ul>
+                  <li>
+                    Learning in the flow of work by taking advantage of LOR Learn and LinkedIn
+                    Learning content
+                  </li>
+                  <li>
+                    Hands-on projects and experiments. Find new gigs and opportunitiyes on LOR Learn
+                  </li>
+                </ul>
+              </div>
+              <div id="career3" class="hide">
+                <h1>Change Like a Chameleon!</h1>
+                <br />
+                <img src="images/chameleon.png" />
+                <p>
+                  If your learning style matches the Chameleon, you are highly adaptable and learn
+                  best by observing and adjusting to your environment.
+                </p>
+                <br />
+                <p><strong>Traits:</strong></p>
+                <ul>
+                  <li>Always on the Lookout: Observant and alert for new information.</li>
+                  <li>Change to the Environment: Adapts easily to various situations.</li>
+                  <li>Got a Firm Grasp: Focuses deeply on mastering key ideas.</li>
+                  <li>Quick to Catch (On): Learns quickly and adjusts to new concepts.</li>
+                </ul>
+
+                <p><strong>Suggested Learning Methods:</strong></p>
+                <ul>
+                  <li>Flexible learning environments, like blended or hybrid models.</li>
+                  <li>Observation-based learning, such as shadowing or case studies.</li>
+                  <li>
+                    Learning in the flow of work by taking advantage of LOR Learn and LinkedIn
+                    Learning content
+                  </li>
+                  <li>Quick-thinking activities, like simulations or role-playing.</li>
+                </ul>
+              </div>
+              <div id="career4" class="hide">
+                <h1>Remedy Like a Raven!</h1>
+                <br />
+                <img src="images/crow.png" />
+                <p>
+                  If you connect with the Raven, you’re a social and collaborative learner who
+                  enjoys solving problems through discussion and teamwork.
+                </p>
+                <br />
+                <p><strong>Traits:</strong></p>
+                <ul>
+                  <li>Keen Problem Solver: Loves analyzing and finding creative solutions.</li>
+                  <li>Social: Enjoys learning through interaction and collaboration.</li>
+                  <li>Vocal: Learns best by discussing and sharing ideas.</li>
+                  <li>Love to Play: Approaches learning with curiosity and fun.</li>
+                </ul>
+
+                <p><strong>Suggested Learning Methods:</strong></p>
+                <ul>
+                  <li>Group projects or team-based activities.</li>
+                  <li>Find a mentor.</li>
+                  <li>Join a Guild.</li>
+                  <li>
+                    Play-based learning techniques, like gamification. Have you seen these badges on
+                    LOR Learn?
+                  </li>
+                  <li>
+                    Opportunities to teach or explain concepts to others, offer to run a Guild
+                    session.
+                  </li>
+                </ul>
+              </div>
+              <div id="incomplete" class="hide">
+                <h1>Didn't Answer Everything!</h1>
+                <br />
+                <img src="images/fish.png" />
+              </div>
+            </div>
+            <p>
+              <br />
+              <em>Find out more and share this quiz with others!</em>
+            </p>
+            <button id="send1" class="hvr-bounce-to-top bounceBtn" onclick="sendEmail()">
+              find out more
+            </button>
+            <button id="send1" class="hvr-bounce-to-top bounceBtn" onclick="sendEmail()">
+              share
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wideClear footer">
+      <img class="zilla" src="images/zilla.png" />
+      <p>
+        <a
+          class="saltlick transition"
+          href="https://www.laingorourke.com/who-we-are/about-us.aspx"
+          target="_blank"
+        >
+          Built in-house by the
+          <span>L&D Lab</span>
+        </a>
+      </p>
+    </div>
+  </body>
+  <script src="js/index.js"></script>
+</html>
