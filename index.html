@@ -93,7 +93,7 @@
 
           <!-- Q3 -->
           <div class="quizItem wideClear transition" id="box3">
-            <h2 class="transition">3. How do you react when something doesn’t go as planned?</h2>
+            <h2 class="transition">3. How do you react when something doesn't go as planned?</h2>
 
             <div class="wideClear">
               <input type="radio" name="radio3" id="q3a" />
@@ -193,7 +193,7 @@
                 <br />
                 <img class="img-lobster" />
                 <p>
-                  If you’re like the Lobster, you are a growth-oriented learner who seeks challenges
+                  If you're like the Lobster, you are a growth-oriented learner who seeks challenges
                   and values resilience. Learning comes through pushing boundaries and embracing
                   discomfort.
                 </p>
@@ -275,11 +275,11 @@
                 </ul>
               </div>
               <div id="career4" class="hide">
-                <h1>Remedy Like a Raven!</h1>
+                <h1>Are Dynamic Like a Dolphin!</h1>
                 <br />
-                <img class="img-crow" />
+                <img class="img-dolphin" />
                 <p>
-                  If you connect with the Raven, you’re a social and collaborative learner who
+                  If you connect with the Dolphin, you're a social and collaborative learner who
                   enjoys solving problems through discussion and teamwork.
                 </p>
                 <br />
@@ -316,10 +316,8 @@
               <br />
               <em>Find out more and share this quiz with others!</em>
             </p>
-            <button id="send1" class="hvr-bounce-to-top bounceBtn" onclick="sendEmail()">
-              find out more
-            </button>
-            <button id="send1" class="hvr-bounce-to-top bounceBtn" onclick="sendEmail()">
+
+            <button id="send1" class="hvr-bounce-to-top bounceBtn" onclick="showModal()">
               share
             </button>
           </div>
@@ -338,6 +336,84 @@
           <span>L&D Lab</span>
         </a>
       </p>
+    </div>
+    <div id="shareModal" class="modal">
+      <div class="modal-content">
+        <div
+          id="shareContentChameleon"
+          contenteditable="true"
+          style="user-select: all; display: none"
+        >
+          <b>My Learnimal is a Changeable Chameleon!</b>
+          <br />
+          <br />
+          I’m highly adaptable and learn best by observing and adjusting to my environment.
+          <br />
+          <br />
+          Find your Learnimal here:
+          <a href="www.lorlearn.com/learnimal" target="_blank">www.lorlearn.com/learnimal</a>
+          <br />
+          <br />
+        </div>
+        <div
+          id="shareContentDolphin"
+          contenteditable="true"
+          style="user-select: all; display: none"
+        >
+          <b>My Learnimal is a Dynamic Dolphin!</b>
+          <br />
+          <br />
+          I’m a social and collaborative learner who enjoys solving problems through discussion and
+          teamwork.
+          <br />
+          <br />
+          Find your Learnimal here:
+          <a href="www.lorlearn.com/learnimal" target="_blank">www.lorlearn.com/learnimal</a>
+          <br />
+          <br />
+        </div>
+        <div id="shareContentCat" contenteditable="true" style="user-select: all; display: none">
+          <b>My Learnimal is a Curious Cat!</b>
+          <br />
+          <br />
+          I thrive in environments where I can investigate and experiment. Mistakes are
+          opportunities to learn, and I enjoy discovery and hands-on activities.
+          <br />
+          <br />
+          Find your Learnimal here:
+          <a href="www.lorlearn.com/learnimal" target="_blank">www.lorlearn.com/learnimal</a>
+          <br />
+          <br />
+        </div>
+        <div
+          id="shareContentLobster"
+          contenteditable="true"
+          style="user-select: all; display: none"
+        >
+          <b>My Learnimal is a Growing Lobster!</b>
+          <br />
+          <br />
+          I'm a growth-oriented learner who seeks challenges and values resilience. Learning comes
+          through pushing boundaries and embracing discomfort.
+          <br />
+          <br />
+          Find your Learnimal here:
+          <a href="www.lorlearn.com/learnimal" target="_blank">www.lorlearn.com/learnimal</a>
+          <br />
+          <br />
+        </div>
+        <h2 style="padding-bottom: 10px">Your Learnimal has been copied!</h2>
+        <p style="padding: 10px 0">
+          Your Learnimal has been copied to your clipboard. Share it with others by pasting it on
+          Viva Engage via the button below.
+        </p>
+        <div class="modal-buttons">
+          <button class="hvr-bounce-to-top bounceBtn" onclick="goVivaEngage()">
+            Go to Viva Engage
+          </button>
+          <button class="hvr-bounce-to-top bounceBtn" onclick="closeModal()">Close</button>
+        </div>
+      </div>
     </div>
   </body>
   <script src="js/index.js"></script>

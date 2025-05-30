@@ -28,7 +28,7 @@ for (let i = 0; i < 4; i++) {
 const lobsterAnswers = ["d", "c", "d", "d", "d"];
 const catAnswers = ["b", "b", "b", "b", "b"];
 const chameleonAnswers = ["a", "d", "a", "a", "a"];
-const RavenAnswers = ["c", "a", "c", "c", "c"];
+const DolphinAnswers = ["c", "a", "c", "c", "c"];
 
 var quad1 = 0;
 var quad2 = 0;
@@ -39,6 +39,8 @@ var percent1 = 0;
 var percent2 = 0;
 var percent3 = 0;
 var percent4 = 0;
+
+var learnimal = "";
 
 $("input[type='radio']").change(function (e) {
   let answer = e.currentTarget.id.slice(-1); // get's letter of answer
@@ -82,7 +84,7 @@ const submitAnswers = () => {
   let lobster = 0;
   let cat = 0;
   let chameleon = 0;
-  let raven = 0;
+  let dolphin = 0;
 
   for (let i = 0; i < resultsArr.length; i++) {
     if (resultsArr[i] == lobsterAnswers[i]) {
@@ -92,15 +94,16 @@ const submitAnswers = () => {
     } else if (resultsArr[i] == chameleonAnswers[i]) {
       chameleon++;
     } else {
-      raven++;
+      dolphin++;
     }
   }
 
-  let animals = { lobster, cat, chameleon, raven };
-  // compare lobtser, cat, chameleon, raven and find the largest
+  let animals = { lobster, cat, chameleon, dolphin };
+  // compare lobtser, cat, chameleon, dolphin and find the largest
   let largestVar = Object.keys(animals).reduce((a, b) => (animals[a] > animals[b] ? a : b));
 
-  console.log(lobster, cat, chameleon, raven);
+  learnimal = largestVar;
+  console.log(lobster, cat, chameleon, dolphin);
   console.log(`The largest animal is: ${largestVar}`);
 
   if (largestVar == "lobster") {
@@ -109,7 +112,7 @@ const submitAnswers = () => {
     $("#career2").removeClass("hide");
   } else if (largestVar == "chameleon") {
     $("#career3").removeClass("hide");
-  } else if (largestVar == "raven") {
+  } else if (largestVar == "dolphin") {
     $("#career4").removeClass("hide");
   }
 
@@ -161,4 +164,53 @@ function sendEmail(eSubject, eBody) {
       "&body=" +
       bodyStr
   );
+}
+
+function goVivaEngage() {
+  window.open("https://engage.cloud.microsoft/main/org/laingorourke.com.au/feed", "_blank");
+}
+
+function showModal() {
+  copyRichText();
+  document.getElementById("shareModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("shareModal").style.display = "none";
+}
+
+// Close modal when clicking outside
+window.onclick = function (event) {
+  const modal = document.getElementById("shareModal");
+  if (event.target == modal) {
+    closeModal();
+  }
+};
+
+async function copyRichText() {
+  let html = document.querySelector("#shareContentChameleon").innerHTML;
+  let text = "https://solensa.github.io/learnimals/images/chameleon.png";
+
+  if (learnimal == "dolphin") {
+    html = document.querySelector("#shareContentDolphin").innerHTML;
+    text = "https://solensa.github.io/learnimals/images/dolphin.png";
+  } else if (learnimal == "lobster") {
+    html = document.querySelector("#shareContentLobster").innerHTML;
+    text = "https://solensa.github.io/learnimals/images/lobster.png";
+  } else if (learnimal == "cat") {
+    html = document.querySelector("#shareContentCat").innerHTML;
+    text = "https://solensa.github.io/learnimals/images/cat.png";
+  }
+  try {
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        "text/html": new Blob([html], { type: "text/html" }),
+        "text/plain": new Blob([text], { type: "text/plain" }),
+      }),
+    ]);
+    // alert("Copied formatted text to clipboard!");
+  } catch (err) {
+    console.error("Copy failed", err);
+    // alert("Failed to copy. Please try again.");
+  }
 }

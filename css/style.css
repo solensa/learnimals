@@ -36,6 +36,9 @@ _\ \ (_| | | |_  | | | (__|   <  \__ \ |_| |_| | (_| | | (_) |
 .img-crow {
   content: url("../images/crow.png");
 }
+.img-dolphin {
+  content: url("../images/dolphin.png");
+}
 .img-lobster {
   content: url("../images/lobster.png");
 }
@@ -102,7 +105,46 @@ body {
 }
 
 body {
-  background: url("../images/bg.png") repeat 0 0;
+  /* background: url("../images/bg.png") repeat 0 0; */
+  background: repeating-linear-gradient(
+      45deg,
+      #0000 calc(-650% / 13) calc(50% / 13),
+      #f1ffff 0 calc(100% / 13),
+      #0000 0 calc(150% / 13),
+      #f1ffff 0 calc(200% / 13),
+      #0000 0 calc(250% / 13),
+      #f1ffff 0 calc(300% / 13)
+    ),
+    repeating-linear-gradient(
+        45deg,
+        #0000 calc(-650% / 13) calc(50% / 13),
+        #f1ffff 0 calc(100% / 13),
+        #0000 0 calc(150% / 13),
+        #f1ffff 0 calc(200% / 13),
+        #0000 0 calc(250% / 13),
+        #f1ffff 0 calc(300% / 13)
+      )
+      32px 32px,
+    repeating-linear-gradient(
+      -45deg,
+      #0000 calc(-650% / 13) calc(50% / 13),
+      #f1ffff 0 calc(100% / 13),
+      #0000 0 calc(150% / 13),
+      #f1ffff 0 calc(200% / 13),
+      #0000 0 calc(250% / 13),
+      #f1ffff 0 calc(300% / 13)
+    ),
+    repeating-linear-gradient(
+        -45deg,
+        #0000 calc(-650% / 13) calc(50% / 13),
+        #f1ffff 0 calc(100% / 13),
+        #0000 0 calc(150% / 13),
+        #f1ffff 0 calc(200% / 13),
+        #0000 0 calc(250% / 13),
+        #f1ffff 0 calc(300% / 13)
+      )
+      32px 32px #ffffff;
+  background-size: 64px 64px;
 }
 
 h1,
@@ -142,7 +184,7 @@ input[type="radio"] {
   float: left;
 }
 input[type="radio"]:checked + label {
-  color: #4500b7;
+  color: #009cde;
 }
 
 .wideClear {
@@ -158,7 +200,7 @@ input[type="radio"]:checked + label {
 
 .quizItem {
   padding: 25px 50px 30px 30px;
-  border: 2px solid #bbb7db;
+  border: 2px solid #cdf0ff;
   margin-left: 0px;
   position: relative;
   margin-bottom: 30px;
@@ -168,13 +210,13 @@ input[type="radio"]:checked + label {
 }
 
 .quizItem:hover {
-  border: 2px solid #4500b7;
+  border: 2px solid #009cde;
   transition: all 0.3s ease-in-out;
 }
 
 .quizItem div:active label,
 .quizItem div:hover label {
-  color: #4500b7;
+  color: #009cde;
 }
 
 .quizItem * {
@@ -187,7 +229,7 @@ input[type="radio"]:checked + label {
 }
 
 .quizItem h2 {
-  color: #2e07d1;
+  color: #009cde;
   font-size: 20px;
   margin-bottom: 23px;
   font-weight: bold;
@@ -210,7 +252,7 @@ textarea,
 text,
 input {
   font-size: 15px;
-  color: #1c005d;
+  color: #113e52;
   float: left;
   font-family: Helvetica, Arial, sans-serif;
   vertical-align: top;
@@ -247,7 +289,7 @@ textarea {
 
 button.bounceBtn {
   background-color: transparent;
-  border: 2px solid #4500b7;
+  border: 2px solid #009cde;
   border-radius: 7px;
   /* margin-top: 40px; */
   display: inline-block;
@@ -256,11 +298,11 @@ button.bounceBtn {
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 18px;
-  color: #4821b3;
+  color: #009cde;
 }
 
 button.bounceBtn:hover {
-  background-color: #4500b7;
+  background-color: #009cde;
   color: #fff;
   cursor: pointer;
 }
@@ -272,7 +314,7 @@ button.bounceBtn:hover {
 
 button.bounceBtn2 {
   background-color: transparent;
-  border: 2px solid #4500b7;
+  border: 2px solid #009cde;
   border-radius: 7px;
   margin-top: 20px;
   margin-right: 20px;
@@ -280,11 +322,11 @@ button.bounceBtn2 {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
-  color: #4821b3;
+  color: #113e52;
 }
 
 button.bounceBtn2:hover {
-  background-color: #4500b7;
+  background-color: #009cde;
   color: #fff;
   cursor: pointer;
 }
@@ -314,7 +356,7 @@ button.bounceBtn2:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #992dff;
+  background: #009cde;
   -webkit-transform: scaleY(0);
   transform: scaleY(0);
   -webkit-transform-origin: 50% 100%;
@@ -347,7 +389,7 @@ button.bounceBtn2:hover {
   font-weight: bold;
   margin-top: 70px;
   margin-bottom: 15px;
-  color: #2e07d1;
+  color: #009cde;
 }
 
 .resultBlock .quizItem {
@@ -415,7 +457,7 @@ button.bounceBtn2:hover {
 .quizHeader p {
   font-size: 16px;
   line-height: 23px;
-  color: #2f2d89;
+  color: #113e52;
   margin: 10px 0px 0px 0;
   width: 100%;
   float: left;
@@ -442,7 +484,7 @@ button.bounceBtn2:hover {
 .footer {
   width: 100%;
   text-align: center;
-  background-color: #3708a2;
+  background-color: #009cde;
   margin-top: 100px;
   padding: 15px 15px;
   position: relative;
@@ -453,9 +495,9 @@ button.bounceBtn2:hover {
 .footer p {
   width: 100%;
   font-size: 14px;
-  color: #bb9ff0;
+  color: #fff;
   text-decoration: none;
-  text-shadow: 0px 1px #2a1375;
+  text-shadow: 0px 1px #003c55;
 }
 
 .footer img {
@@ -523,8 +565,8 @@ button.bounceBtn2:hover {
   width: 300px;
   height: 300px;
   /* background-color: red; */
-  border-left: 2px solid #4500b7;
-  border-bottom: 2px solid #4500b7;
+  border-left: 2px solid #009cde;
+  border-bottom: 2px solid #009cde;
 }
 .quadrant {
   height: 149px;
@@ -559,13 +601,13 @@ button.bounceBtn2:hover {
   float: left;
   width: 35px;
   padding: 0 0 30px 0;
-  color: #4500b7;
+  color: #009cde;
 }
 .xAxis {
   text-align: center;
   width: 300px;
   padding: 0 0 0 65px;
-  color: #4500b7;
+  color: #009cde;
 }
 
 #send1 {
@@ -639,4 +681,34 @@ button.bounceBtn2:hover {
   button.bounceBtn {
     width: 100%;
   }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 650px;
+  border-radius: 7px;
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  margin: 0 10px;
 }
