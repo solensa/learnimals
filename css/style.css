@@ -712,6 +712,10 @@ button.bounceBtn2:hover {
 .modal-buttons button {
   margin: 0 10px;
 }
+a {
+  color: #22b124;
+}
 a:hover {
+  color: #199b1b;
   cursor: pointer;
 }

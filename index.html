@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>LOR Learning Style Quiz</title>
-    <base href="/learnimals/" />
+    <script>
+      if (location.hostname === "lorlearn.app") {
+        const base = document.createElement("base");
+        base.href = "/learnimals/";
+        document.head.appendChild(base);
+      }
+    </script>
 
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -343,9 +349,8 @@
                       href="https://lorprod.workzonehr.cfapps.eu10.hana.ondemand.com/site#workzone-home&/home/uNKqEe3D2ACzV9fgROx2mD"
                       target="_blank"
                     >
-                      Mentor
+                      Mentor.
                     </a>
-                    .
                   </li>
                   <li>
                     Join a
@@ -353,9 +358,8 @@
                       href="https://lorprod.workzonehr.cfapps.eu10.hana.ondemand.com/site#workzone-home&/home/PE8Rb2BDPHFILlJ42XOfUH"
                       target="_blank"
                     >
-                      Guild
+                      Guild.
                     </a>
-                    .
                   </li>
                   <li>Play-based learning techniques, like gamification.</li>
                   <li>
@@ -409,7 +413,7 @@
           <br />
           <br />
           Find your Learnimal here:
-          <a href="/learnimals" target="_blank">www.lorlearn.com/learnimal</a>
+          <a href="/learnimals" target="_blank">www.lorlearn.com/learnimals</a>
           <br />
           <br />
         </div>
@@ -426,7 +430,7 @@
           <br />
           <br />
           Find your Learnimal here:
-          <a href="/learnimals" target="_blank">www.lorlearn.com/learnimal</a>
+          <a href="/learnimals" target="_blank">www.lorlearn.com/learnimals</a>
           <br />
           <br />
         </div>
@@ -439,7 +443,7 @@
           <br />
           <br />
           Find your Learnimal here:
-          <a href="/learnimals" target="_blank">www.lorlearn.com/learnimal</a>
+          <a href="/learnimals" target="_blank">www.lorlearn.com/learnimals</a>
           <br />
           <br />
         </div>
@@ -456,7 +460,7 @@
           <br />
           <br />
           Find your Learnimal here:
-          <a href="/learnimals" target="_blank">www.lorlearn.app/learnimal</a>
+          <a href="/learnimals" target="_blank">www.lorlearn.com/learnimals</a>
           <br />
           <br />
         </div>
