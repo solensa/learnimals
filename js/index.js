@@ -143,40 +143,40 @@ const suggestionItems = [
     title: "Scroll Swap",
     iconSrc: "images/icons/scroll-swap.svg",
     body:
-      "Trade 5 minutes of doom-scrolling with nano-learning by downloading the LinkedIn Learning app. " +
-      "Try: <a href='www.google.com' target='_blank'>Excel</a>, Effective Meetings, Boost Productivity.",
+      "Trade 5 minutes of doom-scrolling with nano-learning by downloading the <a href='https://www.linkedin.com/learning/mobile' target='_blank'>LinkedIn Learning app</a>. " +
+      "Try: <a href='https://www.linkedin.com/learning-login/share?account=2153578&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fnano-tips-for-using-excel-with-kat-norton%3Ftrk%3Dshare_ent_url%26shareId%3D1b0maBnmSmSGJDWm3Q4iag%253D%253D' target='_blank'>Excel</a>, <a href='https://www.linkedin.com/learning-login/share?account=2153578&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fnano-tips-for-more-effective-meetings-with-shade-zahrai%3Ftrk%3Dshare_ent_url%26shareId%3DGf%252Fr1wS%252FQFCSRJtKSDJkRw%253D%253D' target='_blank'>Effective Meetings</a>, <a href='https://www.linkedin.com/learning-login/share?account=2153578&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fnano-tips-to-boost-productivity-with-shade-zahrai%3Ftrk%3Dshare_ent_url%26shareId%3DPWKqctsPTlaI2kH%252B0NBxDw%253D%253D' target='_blank'>Boost Productivity</a>.",
   },
   {
     key: "social",
     title: "Social Learning",
     iconSrc: "images/icons/social.svg",
     body:
-      "Post your wins on Viva Engage. Host a lunch-and-learn. Join a Guild. " +
+      "Post your wins on <a href='https://engage.cloud.microsoft/main/org/laingorourke.com.au/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI5ODU5MjcxODg0OCJ9/all' target='_blank'>Viva Engage</a>. Host a lunch-and-learn. Join a <a href='https://lorprod.workzonehr.cfapps.eu10.hana.ondemand.com/site#workzone-home&/home/PE8Rb2BDPHFILlJ42XOfUH' target='_blank'>Guild</a>. " +
       "Find a mentor or shadow someone to learn on the job.",
   },
   {
     key: "move",
     title: "Learning on the Move",
     iconSrc: "images/icons/move.svg",
-    body: "Make your commute count with podcasts and bite-sized book summaries from Blinkist and GetAbstract.",
+    body: "Make your commute count with podcasts and bite-sized book summaries from <a href='https://www.linkedin.com/learning/instructors/blinkist' target='_blank'>Blinkist</a> and <a href='https://www.linkedin.com/learning/instructors/getabstract' target='_blank'>GetAbstract</a>.",
   },
   {
     key: "certs",
     title: "Level Up with Certifications",
     iconSrc: "images/icons/certs.svg",
-    body: "Get certified in public speaking, Microsoft Apps, Autodesk, Six Sigma, Project Management, and more.",
+    body: "Get certified in public speaking, <a href='https://www.linkedin.com/learning/topics/microsoft-18674489' target='_blank'>Microsoft Apps</a>, <a href='https://www.linkedin.com/learning/topics/autodesk' target='_blank'>Autodesk</a>, <a href='https://www.linkedin.com/learning/topics/six-sigma-certification' target='_blank'>Six Sigma</a>, <a href='https://www.linkedin.com/learning/topics/project-management-institute-pmi-14129084' target='_blank'>Project Management</a>, and <a href='https://www.linkedin.com/learning/browse/certifications' target='_blank'>much more</a>.",
   },
   {
     key: "roleplay",
     title: "Roleplay (with AI)",
     iconSrc: "images/icons/roleplay.svg",
-    body: "Practice tricky scenarios—feedback, pay rise negotiations, saying no—safely with AI.",
+    body: "Practice tricky scenarios—feedback, pay rise negotiations, saying no—safely with <a href='https://www.linkedin.com/learning/role-play/scenarios/new' target='_blank'>AI here</a>.",
   },
   {
     key: "coach",
     title: "Learning Coach",
     iconSrc: "images/icons/coach.svg",
-    body: "Not sure what to learn? Let an AI coach map your next move. Still stuck? Ping the Talent Team.",
+    body: "Not sure what to learn? Let an <a href='https://www.linkedin.com/learning/chatbot' target='_blank'>AI coach</a> map your next move. Still stuck? Ping the Talent Team.",
   },
 ];
 

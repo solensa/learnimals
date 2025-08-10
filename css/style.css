@@ -52,6 +52,8 @@ body {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   margin-top: 16px;
+  position: relative;
+  z-index: 1;
 }
 .suggestion {
   border: 1px solid #cdf0ff;
@@ -62,7 +64,9 @@ body {
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  font-family: Century Gothic, F37 Ginger, arial, helvetica, sans-serif;
+  /* font-family: Century Gothic, F37 Ginger, arial, helvetica, sans-serif; */
+  position: relative;
+  z-index: 1;
 }
 .suggestion-icon-img {
   width: 35px !important;

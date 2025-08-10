@@ -1,5 +1,6 @@
 To Do:
 
 - Update outcomes - insert links
-- Add Google analytics
+- experiment with centering the icons
 - Copy image
+- Add Google analytics - add animal choice
