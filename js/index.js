@@ -40,7 +40,7 @@ var percent2 = 0;
 var percent3 = 0;
 var percent4 = 0;
 
-var learnimal = "";
+var learnimal = "fish";
 
 $("input[type='radio']").change(function (e) {
   let answer = e.currentTarget.id.slice(-1); // get's letter of answer
@@ -277,19 +277,26 @@ function goVivaEngage() {
   window.open("https://engage.cloud.microsoft/main/org/laingorourke.com.au/feed", "_blank");
 }
 
-function showModal() {
-  copyRichText();
-  document.getElementById("shareModal").style.display = "block";
+function showModal(whichModal) {
+  if (whichModal === 1) {
+    copyRichText();
+    document.getElementById("shareModal").style.display = "block";
+  } else {
+    copyResultImageToClipboard();
+    document.getElementById("shareModal2").style.display = "block";
+  }
 }
 
 function closeModal() {
   document.getElementById("shareModal").style.display = "none";
+  document.getElementById("shareModal2").style.display = "none";
 }
 
 // Close modal when clicking outside
 window.onclick = function (event) {
   const modal = document.getElementById("shareModal");
-  if (event.target == modal) {
+  const modal2 = document.getElementById("shareModal2");
+  if (event.target == modal || event.target == modal2) {
     closeModal();
   }
 };
@@ -319,6 +326,47 @@ async function copyRichText() {
   } catch (err) {
     console.error("Copy failed", err);
     // alert("Failed to copy. Please try again.");
+  }
+}
+
+// A function that copies an image from the copy folder to a users clip board so that they can paste it in Microsoft teams
+// Copy result image to clipboard (PNG). Falls back to opening the image if unsupported.
+async function copyResultImageToClipboard() {
+  console.log(learnimal);
+  const imageByAnimal = {
+    chameleon: "images/copy/chameleon-copy.png",
+    dolphin: "images/copy/dolphin-copy.png",
+    lobster: "images/copy/lobster-copy.png",
+    cat: "images/copy/cat-copy.png",
+    fish: "images/copy/fish-copy.png",
+  };
+
+  const animal = typeof learnimal !== "undefined" ? learnimal : null;
+  const url = animal ? imageByAnimal[animal] : null;
+
+  if (!url) {
+    console.warn("No copy image available for result:", animal);
+    return false;
+  }
+
+  if (!navigator.clipboard || typeof ClipboardItem === "undefined") {
+    // Fallback: open image so user can copy manually
+    window.open(url, "_blank", "noopener,noreferrer");
+    return false;
+  }
+
+  try {
+    const res = await fetch(url, { cache: "no-cache" });
+    if (!res.ok) throw new Error(`Failed to fetch image: ${res.status}`);
+    const blob = await res.blob(); // e.g., image/png
+
+    await navigator.clipboard.write([new ClipboardItem({ [blob.type || "image/png"]: blob })]);
+    return true;
+  } catch (err) {
+    console.error("Copy image failed", err);
+    // Fallback: open image so user can copy manually
+    window.open(url, "_blank", "noopener,noreferrer");
+    return false;
   }
 }
 
