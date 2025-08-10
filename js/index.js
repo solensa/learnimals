@@ -65,6 +65,7 @@ const submitAnswers = () => {
     console.log("incomplete");
     $("#incomplete").removeClass("hide");
     $("#resultsBox").removeClass("hide");
+    $("#proTips").addClass("hide");
     $("html,body").animate(
       {
         scrollTop: $("#resultsBox").offset().top - 100,
@@ -106,14 +107,22 @@ const submitAnswers = () => {
   console.log(lobster, cat, chameleon, dolphin);
   console.log(`The largest animal is: ${largestVar}`);
 
+  renderSuggestions(learnimal);
+
+  $("#proTips").addClass("hide");
+
   if (largestVar == "lobster") {
     $("#career1").removeClass("hide");
+    $("#proTips").removeClass("hide");
   } else if (largestVar == "cat") {
     $("#career2").removeClass("hide");
+    $("#proTips").removeClass("hide");
   } else if (largestVar == "chameleon") {
     $("#career3").removeClass("hide");
+    $("#proTips").removeClass("hide");
   } else if (largestVar == "dolphin") {
     $("#career4").removeClass("hide");
+    $("#proTips").removeClass("hide");
   }
 
   $("#resultsBox").removeClass("hide");
@@ -126,6 +135,105 @@ const submitAnswers = () => {
 
   console.log("submit");
 };
+
+// Learning suggestions (SVG icons + HTML-friendly bodies)
+const suggestionItems = [
+  {
+    key: "scroll-swap",
+    title: "Scroll Swap",
+    iconSrc: "images/icons/scroll-swap.svg",
+    body:
+      "Trade 5 minutes of doom-scrolling with nano-learning by downloading the LinkedIn Learning app. " +
+      "Try: <a href='www.google.com' target='_blank'>Excel</a>, Effective Meetings, Boost Productivity.",
+  },
+  {
+    key: "social",
+    title: "Social Learning",
+    iconSrc: "images/icons/social.svg",
+    body:
+      "Post your wins on Viva Engage. Host a lunch-and-learn. Join a Guild. " +
+      "Find a mentor or shadow someone to learn on the job.",
+  },
+  {
+    key: "move",
+    title: "Learning on the Move",
+    iconSrc: "images/icons/move.svg",
+    body: "Make your commute count with podcasts and bite-sized book summaries from Blinkist and GetAbstract.",
+  },
+  {
+    key: "certs",
+    title: "Level Up with Certifications",
+    iconSrc: "images/icons/certs.svg",
+    body: "Get certified in public speaking, Microsoft Apps, Autodesk, Six Sigma, Project Management, and more.",
+  },
+  {
+    key: "roleplay",
+    title: "Roleplay (with AI)",
+    iconSrc: "images/icons/roleplay.svg",
+    body: "Practice tricky scenarios—feedback, pay rise negotiations, saying no—safely with AI.",
+  },
+  {
+    key: "coach",
+    title: "Learning Coach",
+    iconSrc: "images/icons/coach.svg",
+    body: "Not sure what to learn? Let an AI coach map your next move. Still stuck? Ping the Talent Team.",
+  },
+];
+
+// if the boxes are the same but the order changes, define per-animal order:
+const suggestionOrder = {
+  lobster: ["certs", "scroll-swap", "roleplay", "coach", "move", "social"],
+  cat: ["scroll-swap", "roleplay", "move", "coach", "certs", "social"],
+  chameleon: ["roleplay", "scroll-swap", "move", "certs", "coach", "social"],
+  dolphin: ["social", "roleplay", "coach", "scroll-swap", "move", "certs"],
+};
+
+const careerByAnimal = {
+  lobster: "#career1",
+  cat: "#career2",
+  chameleon: "#career3",
+  dolphin: "#career4",
+};
+
+// Render suggestions (uses SVG <img> and allows hyperlinks)
+function renderSuggestions(animal) {
+  $("#resultsBox .suggestions-grid").remove();
+
+  const order = suggestionOrder[animal] || [];
+  const byKey = Object.fromEntries(suggestionItems.map((i) => [i.key, i]));
+
+  const $grid = $('<div class="suggestions-grid" />');
+  order.forEach((key) => {
+    const item = byKey[key];
+    if (!item) return;
+
+    const $card = $('<div class="suggestion" />');
+
+    const $iconWrap = $('<div class="suggestion-icon" aria-hidden="true"/>');
+    if (item.iconSrc) {
+      $iconWrap.append(
+        $("<img>", {
+          src: item.iconSrc,
+          alt: "",
+          loading: "lazy",
+          decoding: "async",
+        })
+      );
+    }
+    $card.append($iconWrap);
+
+    const $content = $('<div class="suggestion-content" />')
+      .append($("<h4/>").text(item.title))
+      .append($("<p/>").html(item.body));
+
+    $content.find("a").attr({ target: "_blank", rel: "noopener noreferrer" });
+
+    $card.append($content);
+    $grid.append($card);
+  });
+
+  $(careerByAnimal[animal]).append($grid);
+}
 
 // function getLabel(id) {
 //    return $("#"+id).next("label").html();

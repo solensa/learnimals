@@ -1,5 +1,5 @@
 To Do:
 
-- Update outcomes
+- Update outcomes - insert links
 - Add Google analytics
 - Copy image
