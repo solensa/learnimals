@@ -72,6 +72,7 @@ const submitAnswers = () => {
       },
       400
     );
+    trackQuizOutcome("fish");
     return;
   } else {
     console.log("complete");
