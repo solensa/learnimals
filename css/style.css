@@ -58,7 +58,7 @@ body {
 .suggestion {
   border: 1px solid #cdf0ff;
   border-radius: 4px;
-  padding: 12px;
+  padding: 16px 11px 16px 11px;
   background: #fff;
   margin-bottom: 0 !important;
   display: flex;
@@ -283,7 +283,7 @@ input[type="radio"]:checked + label {
   margin-bottom: 0;
 }
 
-.quizItem div {
+.quizItem .question {
   margin-bottom: 15px;
   position: relative;
 }
@@ -479,7 +479,7 @@ button.bounceBtn2:hover {
 
 .quizItem img {
   width: 100%;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   /* max-width: 350px; */
 }
 

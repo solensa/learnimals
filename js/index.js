@@ -80,6 +80,7 @@ const submitAnswers = () => {
     $("#career2").addClass("hide");
     $("#career3").addClass("hide");
     $("#career4").addClass("hide");
+    $("#proTips").addClass("hide");
   }
 
   let lobster = 0;
@@ -106,10 +107,8 @@ const submitAnswers = () => {
   learnimal = largestVar;
   console.log(lobster, cat, chameleon, dolphin);
   console.log(`The largest animal is: ${largestVar}`);
-
+  trackQuizOutcome(learnimal);
   renderSuggestions(learnimal);
-
-  $("#proTips").addClass("hide");
 
   if (largestVar == "lobster") {
     $("#career1").removeClass("hide");
@@ -143,8 +142,8 @@ const suggestionItems = [
     title: "Scroll Swap",
     iconSrc: "images/icons/scroll-swap.svg",
     body:
-      "Trade 5 minutes of doom-scrolling with nano-learning by downloading the <a href='https://www.linkedin.com/learning/mobile' target='_blank'>LinkedIn Learning app</a>. " +
-      "Try: <a href='https://www.linkedin.com/learning-login/share?account=2153578&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fnano-tips-for-using-excel-with-kat-norton%3Ftrk%3Dshare_ent_url%26shareId%3D1b0maBnmSmSGJDWm3Q4iag%253D%253D' target='_blank'>Excel</a>, <a href='https://www.linkedin.com/learning-login/share?account=2153578&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fnano-tips-for-more-effective-meetings-with-shade-zahrai%3Ftrk%3Dshare_ent_url%26shareId%3DGf%252Fr1wS%252FQFCSRJtKSDJkRw%253D%253D' target='_blank'>Effective Meetings</a>, <a href='https://www.linkedin.com/learning-login/share?account=2153578&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fnano-tips-to-boost-productivity-with-shade-zahrai%3Ftrk%3Dshare_ent_url%26shareId%3DPWKqctsPTlaI2kH%252B0NBxDw%253D%253D' target='_blank'>Boost Productivity</a>.",
+      "Swap 5 minutes of doom-scrolling with nano-learning. Download the <a href='https://www.linkedin.com/learning/mobile' target='_blank'>LinkedIn Learning app</a>. " +
+      "& try: <a href='https://www.linkedin.com/learning-login/share?account=2153578&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fnano-tips-for-using-excel-with-kat-norton%3Ftrk%3Dshare_ent_url%26shareId%3D1b0maBnmSmSGJDWm3Q4iag%253D%253D' target='_blank'>Excel</a>, <a href='https://www.linkedin.com/learning-login/share?account=2153578&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fnano-tips-for-more-effective-meetings-with-shade-zahrai%3Ftrk%3Dshare_ent_url%26shareId%3DGf%252Fr1wS%252FQFCSRJtKSDJkRw%253D%253D' target='_blank'>Effective Meetings</a>, <a href='https://www.linkedin.com/learning-login/share?account=2153578&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fnano-tips-to-boost-productivity-with-shade-zahrai%3Ftrk%3Dshare_ent_url%26shareId%3DPWKqctsPTlaI2kH%252B0NBxDw%253D%253D' target='_blank'>Boost Productivity</a>.",
   },
   {
     key: "social",
@@ -164,7 +163,7 @@ const suggestionItems = [
     key: "certs",
     title: "Level Up with Certifications",
     iconSrc: "images/icons/certs.svg",
-    body: "Get certified in public speaking, <a href='https://www.linkedin.com/learning/topics/microsoft-18674489' target='_blank'>Microsoft Apps</a>, <a href='https://www.linkedin.com/learning/topics/autodesk' target='_blank'>Autodesk</a>, <a href='https://www.linkedin.com/learning/topics/six-sigma-certification' target='_blank'>Six Sigma</a>, <a href='https://www.linkedin.com/learning/topics/project-management-institute-pmi-14129084' target='_blank'>Project Management</a>, and <a href='https://www.linkedin.com/learning/browse/certifications' target='_blank'>much more</a>.",
+    body: "Get certified in <a href='https://www.linkedin.com/learning/topics/toastmasters-international' target='_blank'>public speaking</a>, <a href='https://www.linkedin.com/learning/topics/microsoft-18674489' target='_blank'>Microsoft Apps</a>, <a href='https://www.linkedin.com/learning/topics/autodesk' target='_blank'>Autodesk</a>, <a href='https://www.linkedin.com/learning/topics/six-sigma-certification' target='_blank'>Six Sigma</a>, <a href='https://www.linkedin.com/learning/topics/project-management-institute-pmi-14129084' target='_blank'>Project Management</a>, and <a href='https://www.linkedin.com/learning/browse/certifications' target='_blank'>much more</a>.",
   },
   {
     key: "roleplay",
@@ -321,4 +320,13 @@ async function copyRichText() {
     console.error("Copy failed", err);
     // alert("Failed to copy. Please try again.");
   }
+}
+
+// Google Analytics tracking function
+function trackQuizOutcome(outcomeCode) {
+  // Sends the quiz result to Google Analytics
+  gtag("event", "quiz_result", {
+    result: outcomeCode, // e.g. cat, dolhpine etc
+    quiz_name: "learning_quiz", // optional but useful
+  });
 }
