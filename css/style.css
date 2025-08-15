@@ -28,27 +28,70 @@ body {
 
 /* Default image for desktop */
 .img-cat {
-  content: url("../images/cat.svg");
+  content: url("../images/cat2.svg");
 }
 .img-chameleon {
-  content: url("../images/chameleon.svg");
+  content: url("../images/chameleon2.svg");
 }
 .img-crow {
   content: url("../images/crow.svg");
 }
 .img-dolphin {
-  content: url("../images/dolphin.svg");
+  content: url("../images/dolphin2.svg");
 }
 .img-lobster {
-  content: url("../images/lobster.svg");
+  content: url("../images/lobster2.svg");
 }
 .img-fish {
-  content: url("../images/fish.svg");
+  content: url("../images/fish2.svg");
 }
 
 .resultsText {
   line-height: 1.6;
   margin-top: 12px;
+}
+
+/* Shuffle button styles */
+.shuffle-btn {
+  position: absolute;
+  top: 102%;
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #d8f1fb;
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
+  display: grid;
+  place-items: center;
+  /* padding: 6px; */
+  cursor: pointer;
+  z-index: 2;
+}
+.shuffle-btn img {
+  width: 22px;
+  height: 46px;
+  display: block;
+}
+.shuffle-btn:hover {
+  border: 1px solid #96c0d0;
+}
+
+/* Alternate image mapping: when body has .alt-images, swap the CSS content URLs */
+body.alt-images .img-cat {
+  content: url("../images/cat.svg");
+}
+body.alt-images .img-chameleon {
+  content: url("../images/chameleon.svg");
+}
+body.alt-images .img-dolphin {
+  content: url("../images/dolphin.svg");
+}
+body.alt-images .img-lobster {
+  content: url("../images/lobster.svg");
+}
+body.alt-images .img-fish {
+  content: url("../images/fish.svg");
 }
 
 /* Learning Suggestions */
@@ -93,6 +136,7 @@ body {
   border-radius: inherit;
   background: linear-gradient(135deg, #009cde, #0aac1a);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;

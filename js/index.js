@@ -302,6 +302,51 @@ window.onclick = function (event) {
   }
 };
 
+// Shuffle image style across the app (switch between base and "2" variants)
+function toggleImageStyle() {
+  const body = document.body;
+  const toBase = !body.classList.contains("alt-images");
+  // alt-images class now means "use base/original (no 2)"; default is 2-variant
+  body.classList.toggle("alt-images", toBase);
+
+  // Swap any <img src> that point to our animal files (png/svg) if present anywhere
+  const swapSrc = (src) => {
+    if (!src) return src;
+    // match .../images/{animal}{maybe2}.(png|svg)
+    const m = src.match(/(.*\/images\/)([^\/]+?)(2)?\.(png|svg)$/i);
+    if (!m) return src;
+    const prefix = m[1];
+    const name = m[2];
+    const has2 = !!m[3];
+    const ext = m[4];
+    // only alter known animals
+    const known = ["cat", "chameleon", "dolphin", "lobster", "fish"];
+    if (!known.includes(name.replace(/-m$/, ""))) return src;
+    // Default is 2-variant. If toggling to base, remove 2; else ensure 2.
+    if (toBase) {
+      return `${prefix}${name.replace(/2$/, "")}.${ext}`;
+    }
+    return `${prefix}${name}${has2 ? "" : "2"}.${ext}`;
+  };
+
+  document.querySelectorAll("img[src]").forEach((img) => {
+    const next = swapSrc(img.getAttribute("src"));
+    if (next && next !== img.src && next !== img.getAttribute("src")) {
+      img.setAttribute("src", next);
+    }
+  });
+
+  // update aria-pressed on the toggle button if present
+  const btn = document.getElementById("shuffleStyleBtn");
+  if (btn) btn.setAttribute("aria-pressed", String(toBase));
+}
+
+// Wire up after DOM is ready
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("shuffleStyleBtn");
+  if (btn) btn.addEventListener("click", toggleImageStyle);
+});
+
 async function copyRichText() {
   let html = document.querySelector("#shareContentChameleon").innerHTML;
   let text = "https://solensa.github.io/learnimals/images/chameleon2.png";
