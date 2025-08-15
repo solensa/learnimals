@@ -304,17 +304,20 @@ window.onclick = function (event) {
 
 async function copyRichText() {
   let html = document.querySelector("#shareContentChameleon").innerHTML;
-  let text = "https://solensa.github.io/learnimals/images/chameleon.png";
+  let text = "https://solensa.github.io/learnimals/images/chameleon2.png";
 
   if (learnimal == "dolphin") {
     html = document.querySelector("#shareContentDolphin").innerHTML;
-    text = "https://solensa.github.io/learnimals/images/dolphin.png";
+    text = "https://solensa.github.io/learnimals/images/dolphin2.png";
   } else if (learnimal == "lobster") {
     html = document.querySelector("#shareContentLobster").innerHTML;
-    text = "https://solensa.github.io/learnimals/images/lobster.png";
+    text = "https://solensa.github.io/learnimals/images/lobster2.png";
   } else if (learnimal == "cat") {
     html = document.querySelector("#shareContentCat").innerHTML;
-    text = "https://solensa.github.io/learnimals/images/cat.png";
+    text = "https://solensa.github.io/learnimals/images/cat2.png";
+  } else if (learnimal == "fish") {
+    html = document.querySelector("#shareContentFish").innerHTML;
+    text = "https://solensa.github.io/learnimals/images/fish2.png";
   }
   try {
     await navigator.clipboard.write([
@@ -335,11 +338,11 @@ async function copyRichText() {
 async function copyResultImageToClipboard() {
   console.log(learnimal);
   const imageByAnimal = {
-    chameleon: "images/copy/chameleon-copy.png",
-    dolphin: "images/copy/dolphin-copy.png",
-    lobster: "images/copy/lobster-copy.png",
-    cat: "images/copy/cat-copy.png",
-    fish: "images/copy/fish-copy.png",
+    chameleon: "images/copy/chameleon-copy2.png",
+    dolphin: "images/copy/dolphin-copy2.png",
+    lobster: "images/copy/lobster-copy2.png",
+    cat: "images/copy/cat-copy2.png",
+    fish: "images/copy/fish-copy2.png",
   };
 
   const animal = typeof learnimal !== "undefined" ? learnimal : null;
