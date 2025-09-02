@@ -302,49 +302,53 @@ window.onclick = function (event) {
   }
 };
 
-// Shuffle image style across the app (switch between base and "2" variants)
-function toggleImageStyle() {
-  const body = document.body;
-  const toBase = !body.classList.contains("alt-images");
-  // alt-images class now means "use base/original (no 2)"; default is 2-variant
-  body.classList.toggle("alt-images", toBase);
-
-  // Swap any <img src> that point to our animal files (png/svg) if present anywhere
-  const swapSrc = (src) => {
-    if (!src) return src;
-    // match .../images/{animal}{maybe2}.(png|svg)
-    const m = src.match(/(.*\/images\/)([^\/]+?)(2)?\.(png|svg)$/i);
-    if (!m) return src;
-    const prefix = m[1];
-    const name = m[2];
-    const has2 = !!m[3];
-    const ext = m[4];
-    // only alter known animals
-    const known = ["cat", "chameleon", "dolphin", "lobster", "fish"];
-    if (!known.includes(name.replace(/-m$/, ""))) return src;
-    // Default is 2-variant. If toggling to base, remove 2; else ensure 2.
-    if (toBase) {
-      return `${prefix}${name.replace(/2$/, "")}.${ext}`;
-    }
-    return `${prefix}${name}${has2 ? "" : "2"}.${ext}`;
-  };
-
-  document.querySelectorAll("img[src]").forEach((img) => {
-    const next = swapSrc(img.getAttribute("src"));
-    if (next && next !== img.src && next !== img.getAttribute("src")) {
-      img.setAttribute("src", next);
-    }
-  });
-
-  // update aria-pressed on the toggle button if present
-  const btn = document.getElementById("shuffleStyleBtn");
-  if (btn) btn.setAttribute("aria-pressed", String(toBase));
+// Image variant cycling: default 3 -> 2 -> base -> 3 ...
+const IMAGE_VARIANTS = ["3", "2", "base"];
+if (!document.body.dataset.imageVariant) {
+  document.body.dataset.imageVariant = "3"; // default
 }
 
-// Wire up after DOM is ready
-document.addEventListener("DOMContentLoaded", function () {
+function cycleImageStyle() {
+  const current = document.body.dataset.imageVariant || "3";
+  const idx = IMAGE_VARIANTS.indexOf(current);
+  const next = IMAGE_VARIANTS[(idx + 1) % IMAGE_VARIANTS.length];
+  document.body.dataset.imageVariant = next;
+  swapInlineAnimalImages(next);
+  updateShuffleButton(next);
+}
+
+function swapInlineAnimalImages(variant) {
+  document.querySelectorAll("img[src]").forEach((img) => {
+    const src = img.getAttribute("src");
+    const m =
+      src && src.match(/(.*\/images\/)(cat|chameleon|dolphin|lobster|fish)(3|2)?\.(png|svg)$/i);
+    if (!m) return;
+    const prefix = m[1];
+    const animal = m[2];
+    const ext = m[4];
+    const suffix = variant === "base" ? "" : variant;
+    const nextSrc = `${prefix}${animal}${suffix}.${ext}`;
+    if (nextSrc !== src) img.setAttribute("src", nextSrc);
+  });
+}
+
+function updateShuffleButton(variant) {
   const btn = document.getElementById("shuffleStyleBtn");
-  if (btn) btn.addEventListener("click", toggleImageStyle);
+  if (!btn) return;
+  btn.setAttribute("aria-pressed", variant !== "3");
+  btn.setAttribute(
+    "title",
+    `Change image style (current: ${variant === "base" ? "original" : "variant " + variant})`
+  );
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("shuffleStyleBtn");
+  if (btn) {
+    btn.addEventListener("click", cycleImageStyle);
+    updateShuffleButton(document.body.dataset.imageVariant || "3");
+  }
+  swapInlineAnimalImages(document.body.dataset.imageVariant || "3");
 });
 
 async function copyRichText() {

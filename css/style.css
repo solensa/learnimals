@@ -26,24 +26,24 @@ body {
   font-family: F37 Ginger, Century Gothic, arial, helvetica, sans-serif;
 }
 
-/* Default image for desktop */
+/* Default image variant = 3 */
 .img-cat {
-  content: url("../images/cat2.svg");
+  content: url("../images/cat3.svg");
 }
 .img-chameleon {
-  content: url("../images/chameleon2.svg");
+  content: url("../images/chameleon3.svg");
 }
 .img-crow {
   content: url("../images/crow.svg");
 }
 .img-dolphin {
-  content: url("../images/dolphin2.svg");
+  content: url("../images/dolphin3.svg");
 }
 .img-lobster {
-  content: url("../images/lobster2.svg");
+  content: url("../images/lobster3.svg");
 }
 .img-fish {
-  content: url("../images/fish2.svg");
+  content: url("../images/fish3.svg");
 }
 
 .resultsText {
@@ -77,20 +77,35 @@ body {
   border: 1px solid #96c0d0;
 }
 
-/* Alternate image mapping: when body has .alt-images, swap the CSS content URLs */
-body.alt-images .img-cat {
+/* Image variant overrides via data attribute: 3 (default) -> 2 -> base */
+body[data-image-variant="2"] .img-cat {
+  content: url("../images/cat2.svg");
+}
+body[data-image-variant="2"] .img-chameleon {
+  content: url("../images/chameleon2.svg");
+}
+body[data-image-variant="2"] .img-dolphin {
+  content: url("../images/dolphin2.svg");
+}
+body[data-image-variant="2"] .img-lobster {
+  content: url("../images/lobster2.svg");
+}
+body[data-image-variant="2"] .img-fish {
+  content: url("../images/fish2.svg");
+}
+body[data-image-variant="base"] .img-cat {
   content: url("../images/cat.svg");
 }
-body.alt-images .img-chameleon {
+body[data-image-variant="base"] .img-chameleon {
   content: url("../images/chameleon.svg");
 }
-body.alt-images .img-dolphin {
+body[data-image-variant="base"] .img-dolphin {
   content: url("../images/dolphin.svg");
 }
-body.alt-images .img-lobster {
+body[data-image-variant="base"] .img-lobster {
   content: url("../images/lobster.svg");
 }
-body.alt-images .img-fish {
+body[data-image-variant="base"] .img-fish {
   content: url("../images/fish.svg");
 }
 
@@ -106,13 +121,18 @@ body.alt-images .img-fish {
 
 .suggestions-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr; /* mobile: single column */
   gap: 14px;
   margin-top: 18px;
   position: relative;
   z-index: 1;
 }
-@media (min-width: 760px) {
+@media (min-width: 600px) {
+  .suggestions-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 960px) {
   .suggestions-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
