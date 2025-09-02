@@ -293,8 +293,16 @@
             <button id="send1" class="hvr-bounce-to-top bounceBtn" onclick="showModal(1)">
               share on viva engage
             </button>
-            <button id="send1" class="hvr-bounce-to-top bounceBtn" onclick="showModal(2)">
+            <button class="hvr-bounce-to-top bounceBtn" onclick="showModal(2)">
               share on MS Teams
+            </button>
+            <button
+              id="downloadImageBtn"
+              class="hvr-bounce-to-top bounceBtn"
+              onclick="downloadVariant3Image()"
+              aria-label="Download Learnimal image (variant 3)"
+            >
+              download image
             </button>
           </div>
         </div>
@@ -400,7 +408,13 @@
           <button class="hvr-bounce-to-top bounceBtn" onclick="goVivaEngage()">
             Go to Viva Engage
           </button>
-          <button class="hvr-bounce-to-top bounceBtn" onclick="closeModal()">Close</button>
+          <button
+            class="hvr-bounce-to-top bounceBtn"
+            style="margin-top: 18px !important"
+            onclick="closeModal()"
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>

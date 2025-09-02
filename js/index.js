@@ -416,7 +416,7 @@ async function copyResultImageToClipboard() {
   }
 
   try {
-  const res = await fetch(url, { cache: "no-cache" });
+    const res = await fetch(url, { cache: "no-cache" });
     if (!res.ok) throw new Error(`Failed to fetch image: ${res.status}`);
     const blob = await res.blob(); // e.g., image/png
 
@@ -437,4 +437,25 @@ function trackQuizOutcome(outcomeCode) {
     result: outcomeCode, // e.g. cat, dolhpine etc
     quiz_name: "learning_quiz", // optional but useful
   });
+}
+
+// Download the variant 3 (copy3) image for the current learnimal regardless of current visual variant
+function downloadVariant3Image() {
+  if (typeof learnimal === "undefined" || !learnimal) {
+    alert("Complete the quiz first to download your Learnimal image.");
+    return;
+  }
+  const allowed = ["cat", "chameleon", "dolphin", "lobster", "fish"];
+  if (!allowed.includes(learnimal)) {
+    alert("Download not available for this result.");
+    return;
+  }
+  const path = `images/copy/${learnimal}-copy3.png`;
+  const a = document.createElement("a");
+  a.href = path;
+  // Provide a friendly filename
+  a.download = `${learnimal}-learnimal.png`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => a.remove(), 0);
 }
