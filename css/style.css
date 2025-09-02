@@ -147,6 +147,33 @@ body[data-image-variant="base"] .img-fish {
   padding: 15px;
 }
 
+/* Mobile: icon + content inline */
+@media (max-width: 599px) {
+  .suggestion {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* vertically center icon relative to text block */
+    justify-content: center; /* horizontally center the row contents within the card */
+    gap: 12px;
+    text-align: left; /* keep text readable */
+  }
+  .suggestion-icon {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  .suggestion-icon img,
+  .suggestion-icon picture,
+  .suggestion-icon svg {
+    display: block;
+  }
+  .suggestion-content {
+    flex: 1 1 auto;
+    /* Optionally center the whole block if narrower than container */
+    /* text-align: left ensures paragraph readability while row is centered */
+  }
+}
+
 /* subtle animated sheen */
 .suggestion::before {
   content: "";
@@ -342,21 +369,57 @@ body[data-image-variant="base"] .img-fish {
   }
 }
 
-/* Mobile images for screens smaller than 768px */
+/* Mobile images for screens smaller than 768px
+   Variant logic: default = 3, then 2, then base (original) matching desktop cycle */
 @media (max-width: 768px) {
+  /* Default (variant 3) */
   .img-cat {
-    content: url("../images/cat-m.svg");
+    content: url("../images/cat-m3.svg");
   }
   .img-chameleon {
-    content: url("../images/chameleon-m.svg");
+    content: url("../images/chameleon-m3.svg");
   }
-  .img-crow {
-    content: url("../images/crow-m.svg");
+  .img-dolphin {
+    content: url("../images/dolphin-m3.svg");
   }
   .img-lobster {
-    content: url("../images/lobster-m.svg");
+    content: url("../images/lobster-m3.svg");
   }
   .img-fish {
+    content: url("../images/fish-m3.svg");
+  }
+
+  /* Variant 2 */
+  body[data-image-variant="2"] .img-cat {
+    content: url("../images/cat-m2.svg");
+  }
+  body[data-image-variant="2"] .img-chameleon {
+    content: url("../images/chameleon-m2.svg");
+  }
+  body[data-image-variant="2"] .img-dolphin {
+    content: url("../images/dolphin-m2.svg");
+  }
+  body[data-image-variant="2"] .img-lobster {
+    content: url("../images/lobster-m2.svg");
+  }
+  body[data-image-variant="2"] .img-fish {
+    content: url("../images/fish-m2.svg");
+  }
+
+  /* Base (original) */
+  body[data-image-variant="base"] .img-cat {
+    content: url("../images/cat-m.svg");
+  }
+  body[data-image-variant="base"] .img-chameleon {
+    content: url("../images/chameleon-m.svg");
+  }
+  body[data-image-variant="base"] .img-dolphin {
+    content: url("../images/dolphin-m.svg");
+  }
+  body[data-image-variant="base"] .img-lobster {
+    content: url("../images/lobster-m.svg");
+  }
+  body[data-image-variant="base"] .img-fish {
     content: url("../images/fish-m.svg");
   }
 }
