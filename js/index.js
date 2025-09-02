@@ -352,22 +352,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function copyRichText() {
-  let html = document.querySelector("#shareContentChameleon").innerHTML;
-  let text = "https://solensa.github.io/learnimals/images/chameleon2.png";
+  // Determine selected variant (3 default -> 2 -> base)
+  const variant = document.body.dataset.imageVariant || "3";
+  const suffix = variant === "base" ? "" : variant; // base: original file name without number
 
-  if (learnimal == "dolphin") {
-    html = document.querySelector("#shareContentDolphin").innerHTML;
-    text = "https://solensa.github.io/learnimals/images/dolphin2.png";
-  } else if (learnimal == "lobster") {
-    html = document.querySelector("#shareContentLobster").innerHTML;
-    text = "https://solensa.github.io/learnimals/images/lobster2.png";
-  } else if (learnimal == "cat") {
-    html = document.querySelector("#shareContentCat").innerHTML;
-    text = "https://solensa.github.io/learnimals/images/cat2.png";
-  } else if (learnimal == "fish") {
-    html = document.querySelector("#shareContentFish").innerHTML;
-    text = "https://solensa.github.io/learnimals/images/fish2.png";
-  }
+  // Pick the correct HTML block for the current learnimal
+  let htmlElId = "#shareContentChameleon";
+  if (learnimal === "dolphin") htmlElId = "#shareContentDolphin";
+  else if (learnimal === "lobster") htmlElId = "#shareContentLobster";
+  else if (learnimal === "cat") htmlElId = "#shareContentCat";
+  else if (learnimal === "fish") htmlElId = "#shareContentFish";
+
+  let html = document.querySelector(htmlElId).innerHTML;
+
+  // Plain-text fallback: direct link to the PNG for the current variant (hosted on GitHub Pages)
+  // Files follow pattern animal{variant}.png except base which is just animal.png
+  const animal = learnimal || "chameleon";
+  const text = `https://solensa.github.io/learnimals/images/${animal}${suffix}.png`;
+
   try {
     await navigator.clipboard.write([
       new ClipboardItem({
@@ -385,17 +387,22 @@ async function copyRichText() {
 // A function that copies an image from the copy folder to a users clip board so that they can paste it in Microsoft teams
 // Copy result image to clipboard (PNG). Falls back to opening the image if unsupported.
 async function copyResultImageToClipboard() {
-  console.log(learnimal);
-  const imageByAnimal = {
-    chameleon: "images/copy/chameleon-copy2.png",
-    dolphin: "images/copy/dolphin-copy2.png",
-    lobster: "images/copy/lobster-copy2.png",
-    cat: "images/copy/cat-copy2.png",
-    fish: "images/copy/fish-copy2.png",
-  };
-
+  const variant = document.body.dataset.imageVariant || "3"; // 3, 2, or base
   const animal = typeof learnimal !== "undefined" ? learnimal : null;
-  const url = animal ? imageByAnimal[animal] : null;
+
+  // Map variant -> copy filename suffix
+  // base uses no number, others use their number
+  const variantSuffix = variant === "base" ? "" : variant; // e.g. "3", "2", ""
+
+  // copy images use pattern: animal-copy{variant}.png, base = animal-copy.png
+  function buildCopyPath(animalName) {
+    if (!animalName) return null;
+    return variantSuffix
+      ? `images/copy/${animalName}-copy${variantSuffix}.png`
+      : `images/copy/${animalName}-copy.png`;
+  }
+
+  const url = buildCopyPath(animal);
 
   if (!url) {
     console.warn("No copy image available for result:", animal);
@@ -409,7 +416,7 @@ async function copyResultImageToClipboard() {
   }
 
   try {
-    const res = await fetch(url, { cache: "no-cache" });
+  const res = await fetch(url, { cache: "no-cache" });
     if (!res.ok) throw new Error(`Failed to fetch image: ${res.status}`);
     const blob = await res.blob(); // e.g., image/png
 
